@@ -1,9 +1,10 @@
 .card {
-	width: 768px;
+	background-color: beige;
 	display: flex;
 	padding: 16px;
+	margin-bottom: 16px;
 	border-radius: 8px;
-	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.04);
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
@@ -26,9 +27,24 @@
 
 .card-text__title {
 	font-size: 24px;
-	font-weight: bold;
+	font-weight: 500;
+	font-family: 'Roboto';
 }
 
 .card-text__summary {
 	flex: 1;
+	font-family: 'Open Sans';
+}
+
+@media only screen and (max-device-width: 480px) {
+	.card {
+		flex-direction: column;
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+
+	.card__image {
+		width: 100%;
+		margin-bottom: 16px;
+	}
 }
