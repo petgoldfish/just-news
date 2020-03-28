@@ -1,11 +1,16 @@
 import React from 'react';
+import { Article } from '../../interfaces/Article';
 import './Card.css';
 
-export const Card = props => {
-	const article = { ...props.article };
+type PropType = {
+	article: Article
+};
+
+export const Card = (props: PropType): JSX.Element => {
+	const article = props.article;
 	return (
 		<div className="card">
-			<img className="card__image" src={article.urlToImage} />
+			<img className="card__image" src={article.urlToImage} alt={article.description} />
 			<div className="card-text">
 				<div className="card-text__title">
 					{article.title}
