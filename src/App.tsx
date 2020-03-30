@@ -26,6 +26,9 @@ function App() {
 					return <Card key={index} article={article} />
 				})}
 			</div>
+			<footer className="app__footer">
+				Made with <span role="img" aria-label="love">❤️</span> by <a rel="noopener noreferrer" target="_blank" href="https://www.github.com/petgoldfish">Raghav Sai</a> and powered by <a rel="noopener noreferrer" target="_blank" href="https://newsapi.org">NewsApi.org</a>
+			</footer>
 		</div>
 	);
 }

@@ -23,6 +23,10 @@
 	padding-right: 16px;
 }
 
+.app__footer {
+	margin-bottom: 16px;
+}
+
 @media only screen and (max-device-width: 480px) {
 	.app__article-list {
 		width: auto;
