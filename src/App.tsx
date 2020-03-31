@@ -6,10 +6,11 @@ import './App.css';
 
 function App() {
 	const [articles, setArticles] = useState([]);
-
+	
 	useEffect(() => {
+		const serverURL = process.env.REACT_APP_API;
 		const fetchArticles = async () => {
-			const response = await axios.get(`https://newsapi.org/v2/top-headlines?sources=reuters&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`);
+			const response = await axios.get(`${serverURL}/newsapi`);
 			setArticles(response.data.articles);
 		};
 
