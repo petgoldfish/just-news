@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Card } from './components/Card/Card';
+import { Article } from './interfaces/Article';
 
 import './App.css';
 
 function App() {
-	const [articles, setArticles] = useState([]);
-	
+	const [articles, setArticles] = useState<Array<Article>>([]);
+
 	useEffect(() => {
 		const serverURL = process.env.REACT_APP_API;
-		const fetchArticles = async () => {
-			const response = await axios.get(`${serverURL}/newsapi`);
-			setArticles(response.data.articles);
-		};
-
-		fetchArticles();
+		fetch(`${serverURL}/newsapi`)
+			.then(res => res.json())
+			.then(response => {
+				setArticles(response.articles);
+			});
 	}, []);
 
 	return (
