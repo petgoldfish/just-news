@@ -1,6 +1,8 @@
 # Just News
 With the many distractions, ads, and other data on typical news sites, it can get overwhelming pretty quickly. That motivated me to build this news app that shows just the news!
 
+See it in action [here](https://petgoldfish-just-news.herokuapp.com/).
+
 Initially started off with Javascript and then moved to Typescript for type safety and development peace of mind.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
