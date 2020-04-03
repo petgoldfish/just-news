@@ -1,19 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
 import { Card } from './components/Card/Card';
 import { Article } from './interfaces/Article';
+import { NewsApiResponse } from './interfaces/NewsApiResponse';
 
 import './App.css';
 
 function App() {
 	const [articles, setArticles] = useState<Array<Article>>([]);
+	const [newsSources, setNewsSources] = useState<Array<string>>(['reuters']);
 
 	useEffect(() => {
-		const serverURL = process.env.REACT_APP_API;
-		fetch(`${serverURL}/newsapi`)
-			.then(res => res.json())
-			.then(response => {
-				setArticles(response.articles);
-			});
+		axios.get('https://newsapi.org/v2/top-headlines', {
+			headers: {
+				'X-Api-Key': process.env.REACT_APP_NEWS_API_KEY
+			},
+			params: {
+				sources: newsSources.join()
+			}
+		}).then((res: AxiosResponse<NewsApiResponse>) => {
+			setArticles(res.data.articles);
+		});
 	}, []);
 
 	return (
