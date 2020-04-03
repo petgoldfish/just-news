@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { Card } from './components/Card/Card';
 import { Article } from './interfaces/Article';
@@ -9,6 +9,9 @@ import './App.css';
 function App() {
 	const [articles, setArticles] = useState<Array<Article>>([]);
 	const [newsSources, setNewsSources] = useState<Array<string>>(['reuters']);
+	const [searchTerm, setSearchTerm] = useState<string | undefined>();
+
+	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
 
 	useEffect(() => {
 		axios.get('https://newsapi.org/v2/top-headlines', {
@@ -16,12 +19,13 @@ function App() {
 				'X-Api-Key': process.env.REACT_APP_NEWS_API_KEY
 			},
 			params: {
-				sources: newsSources.join()
+				sources: newsSources.join(),
+				q: searchTerm
 			}
 		}).then((res: AxiosResponse<NewsApiResponse>) => {
 			setArticles(res.data.articles);
 		});
-	}, []);
+	}, [newsSources, searchTerm]);
 
 	return (
 		<div className="app">
@@ -29,6 +33,12 @@ function App() {
 				Just News
 			</div>
 			<div className="app__article-list">
+				<input
+					className="app__article-search"
+					type="search"
+					placeholder="Search..."
+					onChange={handleSearch}
+				/>
 				{articles.map((article, index) => {
 					return <Card key={index} article={article} />
 				})}
