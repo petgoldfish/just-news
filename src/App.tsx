@@ -1,8 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
-import axios, { AxiosResponse } from 'axios';
 import { Card } from './components/Card/Card';
 import { Article } from './interfaces/Article';
-import { NewsApiResponse } from './interfaces/NewsApiResponse';
+import { getArticles } from './utils/util';
 
 import './App.css';
 
@@ -14,17 +13,10 @@ function App() {
 	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
 
 	useEffect(() => {
-		axios.get('https://newsapi.org/v2/top-headlines', {
-			headers: {
-				'X-Api-Key': process.env.REACT_APP_NEWS_API_KEY
-			},
-			params: {
-				sources: newsSources.join(),
-				q: searchTerm
-			}
-		}).then((res: AxiosResponse<NewsApiResponse>) => {
-			setArticles(res.data.articles);
-		});
+		getArticles({
+			sources: newsSources.join(),
+			q: searchTerm
+		}).then(res => setArticles(res.data.articles));
 	}, [newsSources, searchTerm]);
 
 	return (
