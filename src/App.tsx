@@ -1,5 +1,6 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import axios, { AxiosResponse } from 'axios';
+import { throttle } from 'lodash';
 import { Card } from './components/Card/Card';
 import { Article } from './interfaces/Article';
 import { NewsApiResponse } from './interfaces/NewsApiResponse';
@@ -14,7 +15,7 @@ function App() {
 	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
 
 	useEffect(() => {
-		axios.get('https://newsapi.org/v2/top-headlines', {
+		throttle(() => axios.get('https://newsapi.org/v2/top-headlines', {
 			headers: {
 				'X-Api-Key': process.env.REACT_APP_NEWS_API_KEY
 			},
@@ -24,7 +25,7 @@ function App() {
 			}
 		}).then((res: AxiosResponse<NewsApiResponse>) => {
 			setArticles(res.data.articles);
-		});
+		}), 500)();
 	}, [newsSources, searchTerm]);
 
 	return (
