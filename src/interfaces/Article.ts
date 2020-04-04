@@ -1,7 +1,4 @@
-interface Source {
-	id: string;
-	name: string;
-}
+import { Source } from "./Source";
 
 export interface Article {
 	source: Source;
