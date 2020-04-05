@@ -1,23 +1,36 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import { Card } from './components/Card/Card';
 import { Article } from './interfaces/Article';
-import { getArticles } from './utils/util';
+import { Source } from './interfaces/Source';
+import { getArticles, getNewsSources } from './utils/util';
 
 import './App.css';
 
 function App() {
 	const [articles, setArticles] = useState<Array<Article>>([]);
-	const [newsSources, setNewsSources] = useState<Array<string>>(['reuters']);
+	const [newsSources, setNewsSources] = useState<Array<Source>>([]);
+	const [selectedSources, setSelectedSources] = useState<Array<string>>(['reuters']);
 	const [searchTerm, setSearchTerm] = useState<string | undefined>();
 
 	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
+	
+	const handleSourceSelect = (event: ChangeEvent<HTMLSelectElement>) => {
+		const selectedOptions = Array.prototype.filter
+			.call(event.target.options, (option: HTMLOptionElement) => option.selected)
+			.map((option: HTMLOptionElement) => option.value);
+		setSelectedSources(selectedOptions);
+	};
+
+	useEffect(() => {
+		getNewsSources().then(res => setNewsSources(res.data.sources));
+	}, []);
 
 	useEffect(() => {
 		getArticles({
-			sources: newsSources.join(),
+			sources: selectedSources.join(),
 			q: searchTerm
 		}).then(res => setArticles(res.data.articles));
-	}, [newsSources, searchTerm]);
+	}, [selectedSources, searchTerm]);
 
 	return (
 		<div className="app">
@@ -31,6 +44,15 @@ function App() {
 					placeholder="Search..."
 					onChange={handleSearch}
 				/>
+				<select
+					multiple={true}
+					value={selectedSources}
+					onChange={handleSourceSelect}
+				>
+					{newsSources.map(source => {
+						return <option key={source.id} value={source.id}>{source.name}</option>
+					})}
+				</select>
 				{articles.map((article, index) => {
 					return <Card key={index} article={article} />
 				})}
