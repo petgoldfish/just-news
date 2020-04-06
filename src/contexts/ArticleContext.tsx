@@ -4,11 +4,11 @@ import Source from '../interfaces/Source';
 import { getArticles, getNewsSources } from '../utils/util';
 
 type ArticleContextType = {
-	articles: Array<Article>,
-	newsSources: Array<Source>,
-	selectedSources: Array<string>,
-	setSelectedSources: Function,
-	setSearchTerm: Function
+	articles: Array<Article>;
+	newsSources: Array<Source>;
+	selectedSources: Array<string>;
+	setSelectedSources: Function;
+	setSearchTerm: Function;
 };
 
 export const ArticleContext = createContext<ArticleContextType>({
@@ -16,7 +16,7 @@ export const ArticleContext = createContext<ArticleContextType>({
 	newsSources: [],
 	selectedSources: [],
 	setSelectedSources: () => ['reuters'],
-	setSearchTerm: () => undefined
+	setSearchTerm: () => undefined,
 });
 
 const ArticleContextProvider = (props: any) => {
@@ -26,28 +26,29 @@ const ArticleContextProvider = (props: any) => {
 	const [searchTerm, setSearchTerm] = useState<string | undefined>();
 
 	useEffect(() => {
-		getNewsSources().then(res => setNewsSources(res.data.sources));
+		getNewsSources().then((res) => setNewsSources(res.data.sources));
 	}, []);
 
 	useEffect(() => {
 		getArticles({
 			sources: selectedSources.join(),
-			q: searchTerm
-		}).then(res => setArticles(res.data.articles));
+			q: searchTerm,
+		}).then((res) => setArticles(res.data.articles));
 	}, [selectedSources, searchTerm]);
 
-
 	return (
-		<ArticleContext.Provider value={{
-			articles,
-			newsSources,
-			selectedSources,
-			setSelectedSources,
-			setSearchTerm
-		}}>
+		<ArticleContext.Provider
+			value={{
+				articles,
+				newsSources,
+				selectedSources,
+				setSelectedSources,
+				setSearchTerm,
+			}}
+		>
 			{props.children}
 		</ArticleContext.Provider>
-	)
+	);
 };
 
 export default ArticleContextProvider;

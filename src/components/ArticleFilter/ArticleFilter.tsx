@@ -5,7 +5,7 @@ import './ArticleFilter.css';
 
 export const ArticleFilter = () => {
 	const { newsSources, setSearchTerm, selectedSources, setSelectedSources } = useContext(ArticleContext);
-	
+
 	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
 
 	const handleSourceSelect = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -30,12 +30,16 @@ export const ArticleFilter = () => {
 				value={selectedSources}
 				onChange={handleSourceSelect}
 			>
-				{newsSources.map(source => {
-					return <option className="article-filter__source-option" key={source.id} value={source.id}>{source.name}</option>
+				{newsSources.map((source) => {
+					return (
+						<option className="article-filter__source-option" key={source.id} value={source.id}>
+							{source.name}
+						</option>
+					);
 				})}
 			</select>
 		</div>
-	)
+	);
 };
 
 export default ArticleFilter;

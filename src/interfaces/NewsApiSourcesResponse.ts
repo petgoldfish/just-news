@@ -1,4 +1,4 @@
-import Source from "./Source";
+import Source from './Source';
 
 export default interface NewsApiSourcesResponse {
 	status: string;

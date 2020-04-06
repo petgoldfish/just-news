@@ -10,10 +10,10 @@ export const ArticleList = () => {
 	return (
 		<div className="article-list">
 			{articles.map((article, index) => {
-				return <Card key={index} article={article} />
+				return <Card key={index} article={article} />;
 			})}
 		</div>
-	)
+	);
 };
 
 export default ArticleList;
