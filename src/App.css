@@ -1,9 +1,10 @@
 .app {
-	display: flex;
-	flex-direction: column;
 	align-items: center;
 	background-color: #616161;
 	color: whitesmoke;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto';
 }
 
 .app__title {
@@ -17,12 +18,5 @@
 
 .app__footer {
 	margin-bottom: 16px;
-}
-
-@media only screen and (max-device-width: 480px) {
-	.app__article-list {
-		width: auto;
-		padding-left: 0px;
-		padding-right: 0px;
-	}
+	text-align: center;
 }

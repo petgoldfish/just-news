@@ -32,3 +32,14 @@
 .article-filter__source-option:checked {
 	background: linear-gradient(0deg, #616161 0%, #616161 100%);
 }
+
+@media only screen and (max-device-width: 480px) {
+	.article-filter {
+		width: 100%;
+	}
+	
+	.article-filter__input {
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+}
