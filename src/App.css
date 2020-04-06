@@ -27,6 +27,29 @@
 	padding: 16px;
 }
 
+.app__article-source-select {
+	background: #424242;
+	border: none;
+	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+	border-radius: 8px;
+	color: whitesmoke;
+	font-family: 'Roboto';
+	margin-bottom: 16px;
+	padding: 16px;
+	
+	/* Hide scrollbar on Firefox */
+	scrollbar-width: none;
+}
+
+/* Hide scrollbar on Chrome/Safari */
+.app__article-source-select::-webkit-scrollbar {
+	display: none;
+}
+
+.app__article-source-option:checked {
+	background: linear-gradient(0deg, #616161 0%, #616161 100%);
+}
+
 .app__article-list {
 	display: flex;
 	flex-direction: column;

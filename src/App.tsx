@@ -13,7 +13,7 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState<string | undefined>();
 
 	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
-	
+
 	const handleSourceSelect = (event: ChangeEvent<HTMLSelectElement>) => {
 		const selectedOptions = Array.prototype.filter
 			.call(event.target.options, (option: HTMLOptionElement) => option.selected)
@@ -45,12 +45,13 @@ function App() {
 					onChange={handleSearch}
 				/>
 				<select
+					className="app__article-source-select"
 					multiple={true}
 					value={selectedSources}
 					onChange={handleSourceSelect}
 				>
 					{newsSources.map(source => {
-						return <option key={source.id} value={source.id}>{source.name}</option>
+						return <option className="app__article-source-option" key={source.id} value={source.id}>{source.name}</option>
 					})}
 				</select>
 				{articles.map((article, index) => {
