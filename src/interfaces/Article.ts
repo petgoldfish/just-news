@@ -1,6 +1,6 @@
-import { Source } from "./Source";
+import Source from "./Source";
 
-export interface Article {
+export default interface Article {
 	source: Source;
 	author: string;
 	title: string;

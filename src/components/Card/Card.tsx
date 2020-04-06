@@ -1,12 +1,12 @@
 import React from 'react';
-import { Article } from '../../interfaces/Article';
+import Article from '../../interfaces/Article';
 import './Card.css';
 
 type PropType = {
 	article: Article
 };
 
-export const Card = (props: PropType): JSX.Element => {
+export const Card = (props: PropType) => {
 	const article = props.article;
 	return (
 		<div className="card">
@@ -22,3 +22,5 @@ export const Card = (props: PropType): JSX.Element => {
 		</div>
 	)
 };
+
+export default Card;

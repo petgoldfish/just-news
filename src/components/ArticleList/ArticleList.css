@@ -1,0 +1,7 @@
+.article-list {
+	display: flex;
+	flex-direction: column;
+	width: 768px;
+	padding-left: 16px;
+	padding-right: 16px;
+}

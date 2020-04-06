@@ -1,6 +1,6 @@
-import { Source } from "./Source";
+import Source from "./Source";
 
-export interface NewsApiSourcesResponse {
+export default interface NewsApiSourcesResponse {
 	status: string;
 	sources: Array<Source>;
 }

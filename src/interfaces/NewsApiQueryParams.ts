@@ -1,4 +1,4 @@
-export interface NewsApiQueryParams {
+export default interface NewsApiQueryParams {
 	sources: string;
-	q: string | undefined;
+	q?: string;
 }

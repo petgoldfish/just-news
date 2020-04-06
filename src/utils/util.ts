@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
-import { NewsApiArticleResponse } from '../interfaces/NewsApiArticleResponse';
-import { NewsApiQueryParams } from '../interfaces/NewsApiQueryParams';
-import { NewsApiSourcesResponse } from '../interfaces/NewsApiSourcesResponse';
+import NewsApiArticleResponse from '../interfaces/NewsApiArticleResponse';
+import NewsApiQueryParams from '../interfaces/NewsApiQueryParams';
+import NewsApiSourcesResponse from '../interfaces/NewsApiSourcesResponse';
 
 export const getNewsSources = async (): Promise<AxiosResponse<NewsApiSourcesResponse>> => {
 	return await axios.get('https://newsapi.org/v2/sources', {
