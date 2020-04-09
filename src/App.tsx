@@ -19,11 +19,11 @@ function App() {
 					❤️
 				</span>{' '}
 				by{' '}
-				<a rel="noopener noreferrer" target="_blank" href="https://www.github.com/petgoldfish">
+				<a className="app__footer__link" rel="noopener noreferrer" target="_blank" href="https://www.github.com/petgoldfish">
 					Raghav Sai
 				</a>{' '}
 				and powered by{' '}
-				<a rel="noopener noreferrer" target="_blank" href="https://newsapi.org">
+				<a className="app__footer__link" rel="noopener noreferrer" target="_blank" href="https://newsapi.org">
 					NewsApi.org
 				</a>
 			</footer>

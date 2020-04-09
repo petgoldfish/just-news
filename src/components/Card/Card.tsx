@@ -12,7 +12,9 @@ export const Card = (props: PropType) => {
 		<div className="card">
 			<img className="card__image" src={article.urlToImage} alt={article.description} />
 			<div className="card-text">
-				<div className="card-text__title">{article.title}</div>
+				<a className="card-text__title card-text__link" href={article.url} target="_blank" rel="noopener noreferrer">
+					{article.title}
+				</a>
 				<div className="card-text__summary">{article.description}</div>
 			</div>
 		</div>
