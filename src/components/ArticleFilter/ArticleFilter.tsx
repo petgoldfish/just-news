@@ -12,7 +12,8 @@ export const ArticleFilter = () => {
 		const selectedOptions = Array.prototype.filter
 			.call(event.target.options, (option: HTMLOptionElement) => option.selected)
 			.map((option: HTMLOptionElement) => option.value);
-		setSelectedSources(selectedOptions);
+
+		setSelectedSources(selectedOptions.length ? selectedOptions : ['reuters']);
 	};
 
 	return (
