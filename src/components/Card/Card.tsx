@@ -1,5 +1,7 @@
 import React from 'react';
 import Article from '../../interfaces/Article';
+import { format } from 'timeago.js';
+
 import './Card.css';
 
 type PropType = {
@@ -15,6 +17,9 @@ export const Card = (props: PropType) => {
 				<a className="card-text__title card-text__link" href={article.url} target="_blank" rel="noopener noreferrer">
 					{article.title}
 				</a>
+				<div className="card-text__metadata">
+					{article.author} · {article.source.name} · {format(article.publishedAt)}
+				</div>
 				<div className="card-text__summary">{article.description}</div>
 			</div>
 		</div>
