@@ -44,8 +44,6 @@
 @media only screen and (max-device-width: 480px) {
 	.card {
 		flex-direction: column;
-		margin-left: 16px;
-		margin-right: 16px;
 	}
 
 	.card__image {
