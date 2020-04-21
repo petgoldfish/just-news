@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { v1 as uuidv1 } from 'uuid';
-import Card from '../Card/Card';
-import { ArticleContext } from '../../contexts/ArticleContext';
+import React, { useContext } from "react";
+import { v1 as uuidv1 } from "uuid";
+import Card from "../Card/Card";
+import { ArticleContext } from "../../contexts/ArticleContext";
 
-import './ArticleList.css';
+import "./ArticleList.css";
 
 export const ArticleList = () => {
 	const { articles } = useContext(ArticleContext);

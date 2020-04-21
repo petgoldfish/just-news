@@ -1,10 +1,10 @@
-import React from 'react';
-import ArticleList from './components/ArticleList/ArticleList';
-import ArticleFilter from './components/ArticleFilter/ArticleFilter';
-import ArticleContextProvider from './contexts/ArticleContext';
-import Footer from './components/Footer/Footer';
+import React from "react";
+import ArticleList from "./components/ArticleList/ArticleList";
+import ArticleFilter from "./components/ArticleFilter/ArticleFilter";
+import ArticleContextProvider from "./contexts/ArticleContext";
+import Footer from "./components/Footer/Footer";
 
-import './App.css';
+import "./App.css";
 
 function App() {
 	return (

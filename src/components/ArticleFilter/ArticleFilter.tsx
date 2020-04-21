@@ -1,19 +1,28 @@
-import React, { ChangeEvent, useContext } from 'react';
-import { ArticleContext } from '../../contexts/ArticleContext';
+import React, { ChangeEvent, useContext } from "react";
+import { ArticleContext } from "../../contexts/ArticleContext";
 
-import './ArticleFilter.css';
+import "./ArticleFilter.css";
 
 export const ArticleFilter = () => {
-	const { newsSources, setSearchTerm, selectedSources, setSelectedSources } = useContext(ArticleContext);
+	const {
+		newsSources,
+		setSearchTerm,
+		selectedSources,
+		setSelectedSources,
+	} = useContext(ArticleContext);
 
-	const handleSearch = (event: ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value);
+	const handleSearch = (event: ChangeEvent<HTMLInputElement>) =>
+		setSearchTerm(event.target.value);
 
 	const handleSourceSelect = (event: ChangeEvent<HTMLSelectElement>) => {
 		const selectedOptions = Array.prototype.filter
-			.call(event.target.options, (option: HTMLOptionElement) => option.selected)
+			.call(
+				event.target.options,
+				(option: HTMLOptionElement) => option.selected
+			)
 			.map((option: HTMLOptionElement) => option.value);
 
-		setSelectedSources(selectedOptions.length ? selectedOptions : ['reuters']);
+		setSelectedSources(selectedOptions.length ? selectedOptions : ["reuters"]);
 	};
 
 	return (
@@ -33,7 +42,11 @@ export const ArticleFilter = () => {
 			>
 				{newsSources.map((source) => {
 					return (
-						<option className="article-filter__source-option" key={source.id} value={source.id}>
+						<option
+							className="article-filter__source-option"
+							key={source.id}
+							value={source.id}
+						>
 							{source.name}
 						</option>
 					);

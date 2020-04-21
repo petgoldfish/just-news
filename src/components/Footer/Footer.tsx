@@ -17,7 +17,12 @@ export const Footer = () => {
 				Raghav Sai
 			</a>{' '}
 			and powered by{' '}
-			<a className="app__footer__link" rel="noopener noreferrer" target="_blank" href="https://newsapi.org">
+			<a
+				className="app__footer__link"
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://newsapi.org"
+			>
 				NewsApi.org
 			</a>
 			<br />
@@ -30,7 +35,12 @@ export const Footer = () => {
 				News icon
 			</a>{' '}
 			icon by{' '}
-			<a className="app__footer__link" rel="noopener noreferrer" target="_blank" href="https://icons8.com">
+			<a
+				className="app__footer__link"
+				rel="noopener noreferrer"
+				target="_blank"
+				href="https://icons8.com"
+			>
 				Icons8
 			</a>
 		</footer>
