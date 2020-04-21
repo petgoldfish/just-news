@@ -22,8 +22,10 @@ export const ArticleContext = createContext<ArticleContextType>({
 const ArticleContextProvider = (props: any) => {
 	const [articles, setArticles] = useState<Array<Article>>([]);
 	const [newsSources, setNewsSources] = useState<Array<Source>>([]);
-	const [selectedSources, setSelectedSources] = useState<Array<string>>(['reuters']);
 	const [searchTerm, setSearchTerm] = useState<string | undefined>();
+	const [selectedSources, setSelectedSources] = useState<Array<string>>([
+		'reuters',
+	]);
 
 	useEffect(() => {
 		getNewsSources().then((res) => setNewsSources(res.data.sources));
