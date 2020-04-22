@@ -2,12 +2,10 @@
 	display: flex;
 	flex-direction: column;
 	width: 768px;
-	padding-left: 16px;
-	padding-right: 16px;
 }
 
 @media only screen and (max-device-width: 480px) {
 	.article-list {
-		width: unset;
+		width: 100%;
 	}
 }
