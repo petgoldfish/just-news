@@ -1,10 +1,10 @@
-import React, { useState, createContext, useEffect } from 'react';
-import Article from '../interfaces/Article';
-import Source from '../interfaces/Source';
-import { getArticles, getNewsSources } from '../utils/util';
+import React, { useState, createContext, useEffect } from "react";
+import Article from "../interfaces/Article";
+import Source from "../interfaces/Source";
+import { getArticles, getNewsSources } from "../utils/util";
 
 type ArticleContextType = {
-	articles: Array<Article>;
+	articles: Array<Article | undefined>;
 	newsSources: Array<Source>;
 	selectedSources: Array<string>;
 	setSelectedSources: Function;
@@ -15,17 +15,19 @@ export const ArticleContext = createContext<ArticleContextType>({
 	articles: [],
 	newsSources: [],
 	selectedSources: [],
-	setSelectedSources: () => ['reuters'],
+	setSelectedSources: () => ["reuters"],
 	setSearchTerm: () => undefined,
 });
 
 const ArticleContextProvider = (props: any) => {
-	const [articles, setArticles] = useState<Array<Article>>([]);
-	const [newsSources, setNewsSources] = useState<Array<Source>>([]);
 	const [searchTerm, setSearchTerm] = useState<string | undefined>();
+	const [newsSources, setNewsSources] = useState<Array<Source>>([]);
 	const [selectedSources, setSelectedSources] = useState<Array<string>>([
-		'reuters',
+		"reuters",
 	]);
+	const [articles, setArticles] = useState<Array<Article | undefined>>(
+		Array<undefined>(10).fill(undefined)
+	);
 
 	useEffect(() => {
 		getNewsSources().then((res) => setNewsSources(res.data.sources));
