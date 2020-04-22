@@ -1,16 +1,16 @@
-import React from 'react';
-import Article from '../../interfaces/Article';
-import { format } from 'timeago.js';
+import React from "react";
+import Article from "../../interfaces/Article";
+import { format } from "timeago.js"
 
-import './Card.css';
+import "./Card.css";
+import CardSkeleton from "./CardSkeleton";
 
 type PropType = {
-	article: Article;
+	article?: Article;
 };
 
-export const Card = (props: PropType) => {
-	const article = props.article;
-	return (
+export const Card = ({ article }: PropType) => {
+	return article ? (
 		<div className="card">
 			<img
 				className="card__image"
@@ -27,12 +27,14 @@ export const Card = (props: PropType) => {
 					{article.title}
 				</a>
 				<div className="card-text__metadata">
-					{article.author} · {article.source.name} ·{' '}
+					{article.author} · {article.source.name} ·{" "}
 					{format(article.publishedAt)}
 				</div>
 				<div className="card-text__summary">{article.description}</div>
 			</div>
 		</div>
+	) : (
+		<CardSkeleton />
 	);
 };
 
