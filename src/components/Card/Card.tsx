@@ -15,7 +15,7 @@ export const Card = ({ article }: PropType) => {
 			<img
 				className="card__image"
 				src={article.urlToImage}
-				alt={article.description}
+				alt=""
 			/>
 			<div className="card-text">
 				<a
