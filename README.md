@@ -1,7 +1,7 @@
 # Just News
 With the many distractions, ads, and other data on typical news sites, it can get overwhelming pretty quickly. That motivated me to build this news app that shows just the news!
 
-See it in action [here](https://petgoldfish-just-news.herokuapp.com/).
+~See it in action [here](https://just-news.netlify.app/).~ Unfortunately, News API has restricted their free tier to only work on localhost so the live demo is broken. You can still run it locally, however, to get a look at it in action.
 
 Initially started off with Javascript and then moved to Typescript for type safety and development peace of mind.
 
